@@ -20,7 +20,17 @@ def weather(message):
   w_feels = 'Ощущается как ' + str(temperature_feels) + ' °C'
   bot.send_message(message.from_user.id, w_now)
   bot.send_message(message.from_user.id, w_feels)
-  
+
+  wind_speed = round(weather_data['wind']['speed'])
+  if wind_speed < 5:
+      bot.send_message(message.from_user.id, '✅ На улице слабый ветер, погода хорошая !')
+  elif wind_speed < 10:
+      bot.send_message(message.from_user.id, '🤔 На улице ветрено, оденьтесь чуть теплее !')
+  elif wind_speed < 20:
+      bot.send_message(message.from_user.id, '❗️ Ветер очень сильный, будьте осторожны, выходя из дома !')
+  else:
+      bot.send_message(message.from_user.id, '❌ На улице шторм, на улицу лучше не выходить !')  
+
 if __name__ == '__main__':
     while True:
         try:

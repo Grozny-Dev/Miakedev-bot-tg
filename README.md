@@ -4,4 +4,7 @@
 https://t.me/Miakedev_bot
 
 ### Для работы бота надо установить библеотеки:
-pip install pyTelegramBotAPI
+
+REPO=$HOME/${CONFIG_REPO:-.config.repo}
+
+    pip install pyTelegramBotAPI
